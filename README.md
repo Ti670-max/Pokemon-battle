@@ -35,7 +35,24 @@ def main():
 
         # Update the display
         pygame.display.flip()
+class Pokemon:
+    def __init__(self, name, hp, attack, defense):
+        self.name = name
+        self.hp = hp
+        self.attack = attack
+        self.defense = defense
 
+    def take_damage(self, damage):
+        self.hp -= damage
+        if self.hp < 0:
+            self.hp = 0
+
+    def is_fainted(self):
+        return self.hp <= 0
+
+# Example Pokémon instances
+pikachu = Pokemon("Pikachu", 35, 55, 40)
+charmander = Pokemon("Charmander", 39, 52, 43)
         # Cap the frame rate
         clock.tick(30)
 
